@@ -10,15 +10,20 @@ Author URI: Your Website URL
 add_action( 'wpcf7_mail_sent', 'my_user_registration_function' );
 
 function my_user_registration_function( $contact_form ) {
-    // Retrieve form data
+// Retrieve form data
     $submission = WPCF7_Submission::get_instance();
     if ( $submission ) {
         $data = $submission->get_posted_data();
     }
 
-    // Use form data to register a new user
+    // Check if email or username is already in use
     $username = $data['your-username'];
     $email = $data['your-email'];
+    if ( username_exists( $username ) || email_exists( $email ) ) {
+        return;
+    }
+
+    // Use form data to register a new user
     $password = wp_generate_password();
 
     $userdata = array(
