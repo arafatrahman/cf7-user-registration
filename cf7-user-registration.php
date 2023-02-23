@@ -7,9 +7,9 @@ Author: AR Riyad
 Author URI: https://github.com/arafatrahman
 */
 
-add_action( 'wpcf7_mail_sent', 'my_user_registration_function' );
+add_action( 'wpcf7_mail_sent', 'cf7_user_registration_function' );
 
-function my_user_registration_function( $contact_form ) {
+function cf7_user_registration_function( $contact_form ) {
 // Retrieve form data
     $submission = WPCF7_Submission::get_instance();
     if ( $submission ) {
