@@ -1,10 +1,10 @@
 <?php
 /*
-Plugin Name: CF7 User Registration
+Plugin Name: Contact Form 7 User Registration Extension Add-on
 Description: Adds user registration after a Contact Form 7 submission and sends an email with login details.
-Version: 1.0
-Author: Your Name
-Author URI: Your Website URL
+Version: 1.0.0
+Author: AR Riyad
+Author URI: https://github.com/arafatrahman
 */
 
 add_action( 'wpcf7_mail_sent', 'my_user_registration_function' );
@@ -17,9 +17,9 @@ function my_user_registration_function( $contact_form ) {
     }
 
     // Check if email or username is already in use
-    $username = $data['your-username'];
+    $username = $data['your-name'];
     $email = $data['your-email'];
-    if ( username_exists( $username ) || email_exists( $email ) ) {
+    if ( username_exists( $username ) || email_exists( $email ) || empty($email) || empty( $username)) {
         return;
     }
 
