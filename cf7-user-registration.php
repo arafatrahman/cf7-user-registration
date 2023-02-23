@@ -1,6 +1,6 @@
 <?php
 /*
-Plugin Name: Contact Form 7 User Registration Extension Add-on
+Plugin Name: User Registration Extension Add-on for cf7
 Description: Adds user registration after a Contact Form 7 submission and sends an email with login details.
 Version: 1.0.0
 Author: AR Riyad
