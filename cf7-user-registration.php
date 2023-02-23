@@ -42,3 +42,16 @@ function my_user_registration_function( $contact_form ) {
 
     wp_mail( $email, $subject, $message );
 }
+
+add_action('admin_notices', 'cf7ur_display_admin_notice');
+
+function cf7ur_display_admin_notice()
+{
+    if (!is_plugin_active('contact-form-7/wp-contact-form-7.php')) {
+?>
+        <div class="notice notice-error">
+            <p>Contact Form 7 User Registration Extension Add-on requires Contact Form 7 plugin to be active.</p>
+        </div>
+    <?php
+    }
+}
